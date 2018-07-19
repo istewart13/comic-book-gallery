@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Comic Book Detail";
+
+
+}
+
+<h1>@ViewBag.SeriesTitle</h1>
+<h2>Issue #@ViewBag.IssueNumber</h2>
+
+<h5>Description:</h5>
+<div>@Html.Raw(ViewBag.Description)</div>
+
+<h5>Artists:</h5>
+<ul>
+    @foreach (var artist in ViewBag.Artists)
+     {
+         <li>@artist</li>
+     }
+</ul>
+
