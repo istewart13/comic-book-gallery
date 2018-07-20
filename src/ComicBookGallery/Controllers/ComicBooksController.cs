@@ -23,43 +23,15 @@ namespace ComicBookGallery.Controllers
             return View();
         }
 
-        // GET: ComicBooks/Detail
-        public ActionResult Detail()
+        // GET: ComicBooks/Detail/{i}
+        public ActionResult Detail(int? id)
         {
-            var comicBook = new ComicBook()
+            if (id == null)
             {
-                SeriesTitle = "The Amazing Spider-Man",
-                IssueNumber = 700,
-                DescriptionHtml = "<p>Final issue! Witness the final hours of Doctor Octopus' life and his one, last, great act of revenge! Even if Spider-Man survives... <strong>will Peter Parker?</strong></p>",
-                Artists = new Artist[]
-                {
-                    new Artist()
-                    {
-                        Name = "Script",
-                        Role = "Dan Slott"
-                    },
-                    new Artist()
-                    {
-                        Name = "Pencils",
-                        Role = "Humberto Ramos"
-                    },
-                    new Artist()
-                    {
-                        Name = "Inks",
-                        Role = "Victor Olazaba"
-                    },
-                    new Artist()
-                    {
-                        Name = "Colors",
-                        Role = "Edgar Delgado"
-                    },
-                    new Artist()
-                    {
-                        Name = "Letters",
-                        Role = "Chris Eliopoulos"
-                    }
-                }
-            };
+                return HttpNotFound();
+            }
+
+            ComicBook comicBook = _comicBookRepository.GetComicBook(id.Value);
             return View(comicBook);
         }
     }
