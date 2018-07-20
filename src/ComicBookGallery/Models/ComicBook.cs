@@ -7,11 +7,11 @@ namespace ComicBookGallery.Models
 {
     public class ComicBook
     {
-        private int Id { get; set; }
-        private string SeriesTitle { get; set; }
+        public int Id { get; set; }
+        public string SeriesTitle { get; set; }
         public int IssueNumber { get; set; }
-        public string Description { get; set; }
-        public string[] Artists { get; set; }
+        public string DescriptionHtml { get; set; }
+        public Artist[] Artists { get; set; }
         public bool Favourite { get; set; }
     }
 }
